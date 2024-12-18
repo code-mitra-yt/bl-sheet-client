@@ -1,9 +1,12 @@
-import { Button } from "@/components/ui/button";
+import { RouterProvider } from "react-router-dom";
+import router from "./routes";
 
 function App() {
   return (
-    <div className="flex items-center justify-center h-screen">
-      <Button>Code Mitra YT</Button>
+    <div vaul-drawer-wrapper="">
+      <div className="relative flex min-h-screen flex-col bg-background text-foreground">
+        <RouterProvider router={router} />
+      </div>
     </div>
   );
 }
