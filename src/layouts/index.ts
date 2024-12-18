@@ -1,3 +1,4 @@
-import AppLayout from "./app.layout";
+import RootLayout from "./root-layout";
+import AppLayout from "./app-layout";
 
-export { AppLayout };
+export { RootLayout, AppLayout };

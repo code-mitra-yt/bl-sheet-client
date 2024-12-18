@@ -1,5 +1,5 @@
 import { AboutPage, HomePage } from "@/features";
-import { AppLayout } from "@/layouts";
+import { AppLayout, RootLayout } from "@/layouts";
 
 import {
   createBrowserRouter,
@@ -9,9 +9,11 @@ import {
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<AppLayout />}>
-      <Route index element={<HomePage />} />
-      <Route path="about" element={<AboutPage />} />
+    <Route path="/" element={<RootLayout />}>
+      <Route element={<AppLayout />}>
+        <Route index element={<HomePage />} />
+        <Route path="about" element={<AboutPage />} />
+      </Route>
     </Route>
   )
 );
