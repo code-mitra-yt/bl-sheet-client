@@ -7,3 +7,11 @@ export interface NavLinkType {
   isProtected: boolean;
   icon: LucideIcon;
 }
+
+export interface FeatureType {
+  id: number;
+  title: string;
+  description: string;
+  Icon: LucideIcon;
+  color: string;
+}
