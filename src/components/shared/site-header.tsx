@@ -1,4 +1,4 @@
-import { LogoLink, AuthButtons, NavLinks } from "@/components";
+import { LogoLink, AuthButtons, NavLinks, ModeToggle } from "@/components";
 import { NAV_LINKS } from "@/constants";
 
 const SiteHeader = () => {
@@ -9,7 +9,10 @@ const SiteHeader = () => {
           <LogoLink />
           <NavLinks links={NAV_LINKS} />
         </div>
-        <AuthButtons />
+        <div className="flex items-center justify-center space-x-2">
+          <AuthButtons />
+          <ModeToggle />
+        </div>
       </div>
     </header>
   );
