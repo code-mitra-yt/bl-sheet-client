@@ -9,6 +9,9 @@ import ModeToggle from "./shared/mode-toggle";
 
 import GridEffect from "./effects/grid-effect";
 
+import SignUpIcon from "./icons/signup-icon";
+import SignInIcon from "./icons/signin-icon";
+
 import { Button } from "./ui/button";
 
 export {
@@ -22,5 +25,7 @@ export {
   useTheme,
   ModeToggle,
   GridEffect,
+  SignInIcon,
+  SignUpIcon,
   Button,
 };
