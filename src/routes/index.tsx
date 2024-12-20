@@ -11,6 +11,8 @@ import {
   SignUpPage,
   SignInPage,
   ForgotPassword,
+  TermsServices,
+  PrivacyPolicy,
 } from "@/features";
 
 const router = createBrowserRouter(
@@ -20,6 +22,8 @@ const router = createBrowserRouter(
         <Route path="sign-up" element={<SignUpPage />} />
         <Route path="sign-in" element={<SignInPage />} />
         <Route path="forgot-password" element={<ForgotPassword />} />
+        <Route path="terms-of-service" element={<TermsServices />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
       </Route>
 
       <Route element={<AppLayout />}>

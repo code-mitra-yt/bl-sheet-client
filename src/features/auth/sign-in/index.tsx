@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom";
 import { SignInIcon } from "@/components";
 
-import AuthenticationStrategy from "../shared/authentication-strategy";
 import SignInForm from "./components/sign-in-form";
+import AcceptConditions from "../shared/accept-conditions";
+import AuthenticationStrategy from "../shared/authentication-strategy";
 
 const SignInPage = () => {
   return (
@@ -39,23 +40,7 @@ const SignInPage = () => {
                 </Link>
               </div>
               <AuthenticationStrategy />
-              <p className="px-4 text-center text-sm text-muted-foreground">
-                By clicking continue, you agree to our{" "}
-                <Link
-                  to="/terms"
-                  className="underline underline-offset-4 hover:text-primary"
-                >
-                  Terms of Service
-                </Link>{" "}
-                and{" "}
-                <Link
-                  to="/policy"
-                  className="underline underline-offset-4 hover:text-primary"
-                >
-                  Privacy Policy
-                </Link>
-                .
-              </p>
+              <AcceptConditions />
             </div>
           </div>
         </div>
