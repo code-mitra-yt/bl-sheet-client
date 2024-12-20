@@ -3,11 +3,10 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { AppLayout, RootLayout } from "@/layouts";
+import { AppLayout, DashboardLayout, RootLayout } from "@/layouts";
 import {
   HomePage,
   DashboardHome,
-  Projects,
   SignUpPage,
   SignInPage,
   ForgotPassword,
@@ -28,10 +27,10 @@ const router = createBrowserRouter(
 
       <Route element={<AppLayout />}>
         <Route index element={<HomePage />} />
-        <Route path="dashboard">
-          <Route index element={<DashboardHome />} />
-          <Route path="projects" element={<Projects />} />
-        </Route>
+      </Route>
+
+      <Route path="dashboard" element={<DashboardLayout />}>
+        <Route path="home" element={<DashboardHome />} />
       </Route>
     </Route>
   ),

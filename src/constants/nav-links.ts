@@ -13,7 +13,7 @@ const NAV_LINKS: NavLinkType[] = [
     id: 2,
     title: "Dashboard",
     isProtected: true,
-    path: "/dashboard",
+    path: "/dashboard/home",
     icon: LayoutGridIcon,
   },
 ];

@@ -1,11 +1,12 @@
-import SiteHeader from "./shared/site-header";
-import SiteFooter from "./shared/site-footer";
 import LogoLink from "./shared/logo-link";
-import AuthButtons from "./shared/auth-buttons";
 import NavLinks from "./shared/nav-links";
+import ModeToggle from "./shared/mode-toggle";
+import SiteFooter from "./shared/site-footer";
+import SiteHeader from "./shared/site-header";
+import AuthButtons from "./shared/auth-buttons";
 import ListComponent from "./shared/list-component";
 import { ThemeProvider, useTheme } from "./shared/theme-provider";
-import ModeToggle from "./shared/mode-toggle";
+import DashboardSidebar from "./shared/dashboard-sidebar/project-sidebar";
 
 import GridEffect from "./effects/grid-effect";
 
@@ -25,6 +26,7 @@ export {
   ThemeProvider,
   useTheme,
   ModeToggle,
+  DashboardSidebar,
   GridEffect,
   SignInIcon,
   SignUpIcon,
