@@ -1,15 +1,17 @@
 import { Sidebar, SidebarRail } from "@/components/ui/sidebar";
 
-import SidebarNav from "./sidebar-nav";
-import SidebarUser from "./sidebar-user";
-import Header from "./header";
+import NavMain from "./nav-main";
+import NavSecondary from "./nav-secondary";
+import NavHeader from "./nav-header";
+import { Separator } from "@/components/ui/separator";
 
 const DashboardSidebar = () => {
   return (
     <Sidebar collapsible="icon">
-      <Header />
-      <SidebarNav />
-      <SidebarUser />
+      <NavHeader />
+      <Separator />
+      <NavMain />
+      <NavSecondary />
       <SidebarRail />
     </Sidebar>
   );

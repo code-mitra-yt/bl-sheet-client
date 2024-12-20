@@ -35,33 +35,32 @@ const navMain = [
   },
 ];
 
-const SidebarNav = () => {
+const NavMain = () => {
   const { open, isMobile } = useSidebar();
   return (
     <SidebarContent>
-      <SidebarGroup>
-        <SidebarMenu>
-          {navMain.map((item) => (
+      <SidebarGroup className="space-y-1">
+        {navMain.map((item) => (
+          <SidebarMenu key={item.id}>
             <NavLink
-              key={item.id}
               to={item.url}
               className={({ isActive }) =>
                 cn(
-                  "flex items-center space-x-2 hover:bg-muted p-2 rounded-lg",
+                  "flex items-center space-x-2 hover:bg-muted p-3 rounded-lg text-foreground",
                   isActive && "bg-muted text-active"
                 )
               }
             >
-              <item.icon size={open ? 20 : 15} />
-              <span className={cn(!open && !isMobile && "hidden")}>
+              <item.icon size={15} />
+              <span className={cn("text-sm", !open && !isMobile && "hidden")}>
                 {item.title}
               </span>
             </NavLink>
-          ))}
-        </SidebarMenu>
+          </SidebarMenu>
+        ))}
       </SidebarGroup>
     </SidebarContent>
   );
 };
 
-export default SidebarNav;
+export default NavMain;

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { DashboardSidebar } from "@/components";
+import { DashboardSidebar, ModeToggle } from "@/components";
 import {
   SidebarInset,
   SidebarProvider,
@@ -13,8 +13,8 @@ const DashboardLayout = () => {
       <DashboardSidebar />
       <main className="w-full">
         <SidebarInset>
-          <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12 border-b w-full">
-            <div className="flex items-center gap-2 px-4">
+          <header className="flex h-16 shrink-0 px-4 items-center justify-between gap-2 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-16 border-b w-full">
+            <div className="flex items-center gap-2">
               <SidebarTrigger className="-ml-1 size-8" />
               <div className="flex items-center justify-center space-x-2">
                 <Avatar className="size-7">
@@ -24,10 +24,13 @@ const DashboardLayout = () => {
                   />
                   <AvatarFallback>R</AvatarFallback>
                 </Avatar>
-                <h1 className="text-active text-sm font-medium">
+                <h1 className="text-foreground text-sm font-medium">
                   Rushi Mungse
                 </h1>
               </div>
+            </div>
+            <div>
+              <ModeToggle />
             </div>
           </header>
           <div className="p-4">
