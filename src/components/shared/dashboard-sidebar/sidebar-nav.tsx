@@ -36,7 +36,7 @@ const navMain = [
 ];
 
 const SidebarNav = () => {
-  const { open } = useSidebar();
+  const { open, isMobile } = useSidebar();
   return (
     <SidebarContent>
       <SidebarGroup>
@@ -53,7 +53,9 @@ const SidebarNav = () => {
               }
             >
               <item.icon size={open ? 20 : 15} />
-              <span className={cn(!open && "hidden")}>{item.title}</span>
+              <span className={cn(!open && !isMobile && "hidden")}>
+                {item.title}
+              </span>
             </NavLink>
           ))}
         </SidebarMenu>

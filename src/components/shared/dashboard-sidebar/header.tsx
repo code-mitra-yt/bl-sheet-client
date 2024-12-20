@@ -7,7 +7,7 @@ const Header = () => {
   const navigate = useNavigate();
   return (
     <SidebarHeader onClick={() => navigate("/")} className="cursor-pointer">
-      <div className="py-3 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground flex items-center space-x-2">
+      <div className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground flex items-center space-x-2">
         <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-active text-sidebar-primary-foreground">
           <SquareKanban className="size-4" />
         </div>
