@@ -3,7 +3,7 @@ import Hero from "./components/hero";
 
 const HomePage = () => {
   return (
-    <div className="relative">
+    <div className="relative pb-8">
       <Hero />
       <Features />
     </div>

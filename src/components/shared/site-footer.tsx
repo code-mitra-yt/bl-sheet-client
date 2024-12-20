@@ -2,7 +2,7 @@ import { siteConfigs } from "@/configs";
 
 const SiteFooter = () => {
   return (
-    <div className="h-14 px-4 border-t flex items-center">
+    <div className="h-14 px-4 sm:px-8 border-t flex items-center">
       <div className="relative text-sm text-center sm:text-start">
         Built by{" "}
         <a
