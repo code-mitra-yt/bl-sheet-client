@@ -11,6 +11,7 @@ import GridEffect from "./effects/grid-effect";
 
 import SignUpIcon from "./icons/signup-icon";
 import SignInIcon from "./icons/signin-icon";
+import ForgotPasswordIcon from "./icons/forgot-password-icon";
 
 import { Button } from "./ui/button";
 
@@ -27,5 +28,6 @@ export {
   GridEffect,
   SignInIcon,
   SignUpIcon,
+  ForgotPasswordIcon,
   Button,
 };

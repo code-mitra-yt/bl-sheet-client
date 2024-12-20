@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 const AcceptConditions = () => {
+  return null;
   return (
     <p className="px-4 text-center text-sm text-muted-foreground">
       By clicking continue, you agree to our{" "}
