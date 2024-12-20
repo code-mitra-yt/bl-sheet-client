@@ -12,6 +12,10 @@ import {
   ForgotPassword,
   TermsServices,
   PrivacyPolicy,
+  Projects,
+  Todos,
+  Settings,
+  Profile,
 } from "@/features";
 
 const router = createBrowserRouter(
@@ -31,6 +35,10 @@ const router = createBrowserRouter(
 
       <Route path="dashboard" element={<DashboardLayout />}>
         <Route path="home" element={<DashboardHome />} />
+        <Route path="projects" element={<Projects />} />
+        <Route path="todos" element={<Todos />} />
+        <Route path="settings" element={<Settings />} />
+        <Route path="profile" element={<Profile />} />
       </Route>
     </Route>
   ),

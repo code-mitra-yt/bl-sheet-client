@@ -18,13 +18,13 @@ const navMain = [
   {
     id: 2,
     title: "Todos",
-    url: "/dashbaord/todos",
+    url: "/dashboard/todos",
     icon: CheckCircle,
   },
   {
     id: 3,
     title: "Projects",
-    url: "/dashbaord/projects",
+    url: "/dashboard/projects",
     icon: PanelsTopLeft,
   },
   {
@@ -46,7 +46,7 @@ const NavMain = () => {
               to={item.url}
               className={({ isActive }) =>
                 cn(
-                  "flex items-center space-x-2 hover:bg-muted p-3 rounded-lg text-foreground",
+                  "flex items-center space-x-2 hover:bg-muted p-2 rounded-lg text-foreground",
                   isActive && "bg-muted text-active"
                 )
               }

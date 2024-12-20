@@ -4,6 +4,9 @@ import PrivacyPolicy from "./privacy-policy";
 
 import DashboardHome from "./dashboard/home";
 import Projects from "./dashboard/projects";
+import Todos from "./dashboard/todos";
+import Settings from "./dashboard/settings";
+import Profile from "./dashboard/profile";
 
 import SignUpPage from "./auth/sign-up";
 import SignInPage from "./auth/sign-in";
@@ -15,6 +18,9 @@ export {
   PrivacyPolicy,
   DashboardHome,
   Projects,
+  Todos,
+  Settings,
+  Profile,
   SignUpPage,
   SignInPage,
   ForgotPassword,

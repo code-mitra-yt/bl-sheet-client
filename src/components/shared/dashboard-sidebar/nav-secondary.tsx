@@ -1,13 +1,12 @@
 import { cn } from "@/lib/utils";
+import { NavLink } from "react-router-dom";
 import { CircleUserRound, LogOut } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 import {
   SidebarFooter,
   SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { Separator } from "@/components/ui/separator";
 
 const NavSecondary = () => {
   const { open, isMobile } = useSidebar();
@@ -22,31 +21,30 @@ const NavSecondary = () => {
       </div>
       <Separator />
       <SidebarMenu>
-        <SidebarMenuItem>
-          <SidebarMenuButton
-            size="lg"
-            className={cn(
-              "flex items-center data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground",
-              !open && !isMobile && "justify-center"
-            )}
-          >
-            <CircleUserRound size={open ? 20 : 15} />
-            <span className={cn(!open && !isMobile && "hidden")}>Profile</span>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
-
-        <SidebarMenuItem>
-          <SidebarMenuButton
-            size="lg"
-            className={cn(
-              "flex items-center data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground",
-              !open && !isMobile && "justify-center"
-            )}
-          >
-            <LogOut size={open ? 20 : 15} />
-            <span className={cn(!open && !isMobile && "hidden")}>Logout</span>
-          </SidebarMenuButton>
-        </SidebarMenuItem>
+        <NavLink
+          to={"/dashboard/profile"}
+          className={({ isActive }) =>
+            cn(
+              "flex items-center space-x-2 hover:bg-muted p-2 rounded-lg text-foreground",
+              isActive && "bg-muted text-active"
+            )
+          }
+        >
+          <CircleUserRound size={!open ? 15 : 15} />
+          <span className={cn("text-sm", !open && !isMobile && "hidden")}>
+            Profile
+          </span>
+        </NavLink>
+        <button
+          className={cn(
+            "flex items-center space-x-2 hover:bg-muted p-2 rounded-lg text-foreground"
+          )}
+        >
+          <LogOut size={!open ? 15 : 15} />
+          <span className={cn("text-sm", !open && !isMobile && "hidden")}>
+            Logout
+          </span>
+        </button>
       </SidebarMenu>
     </SidebarFooter>
   );
