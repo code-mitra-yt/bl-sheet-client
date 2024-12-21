@@ -13,7 +13,7 @@ const Hero = () => {
           Welcome to <span className="text-active">{siteConfigs.name}</span>{" "}
         </p>
 
-        <h1 className="text-center sm:text-start text-xl sm:text-2xl md:text-4xl xl:text-5xl font-bold mt-8 bg-gradient-to-r from-active/70 via-active/90 to-active inline-block text-transparent bg-clip-text">
+        <h1 className="text-center sm:text-start text-2xl sm:text-2xl md:text-4xl xl:text-5xl font-bold mt-8 bg-gradient-to-r from-active/70 via-active/90 to-active inline-block text-transparent bg-clip-text">
           Simplifying Project Management
         </h1>
 

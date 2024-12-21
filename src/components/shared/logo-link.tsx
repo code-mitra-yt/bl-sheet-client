@@ -4,14 +4,15 @@ import { siteConfigs } from "@/configs";
 
 const LogoLink = () => {
   return (
-    <NavLink
-      to="/"
-      className="flex items-center justify-center space-x-2 text-primary"
-    >
-      <SquareKanban size={30} strokeWidth={2.5} />
-      <h1 className="font-semibold text-xl">
-        {siteConfigs.name.toUpperCase()}
-      </h1>
+    <NavLink to="/" className="flex items-center justify-center space-x-4">
+      <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-active text-sidebar-primary-foreground">
+        <SquareKanban className="size-4" />
+      </div>
+      <div className="sm:grid flex-1 text-left text-lg leading-tight hidden">
+        <span className="truncate font-semibold text-active">
+          {siteConfigs.name.toUpperCase()}
+        </span>
+      </div>
     </NavLink>
   );
 };

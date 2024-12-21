@@ -1,5 +1,6 @@
 import { LogoLink, AuthButtons, NavLinks, ModeToggle } from "@/components";
 import { NAV_LINKS } from "@/constants";
+import UserAvatar from "./user-avatar";
 
 const SiteHeader = () => {
   return (
@@ -11,6 +12,7 @@ const SiteHeader = () => {
         </div>
         <div className="flex items-center justify-center space-x-2">
           <AuthButtons />
+          <UserAvatar />
           <ModeToggle />
         </div>
       </div>

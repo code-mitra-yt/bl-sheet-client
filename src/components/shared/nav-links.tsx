@@ -7,6 +7,9 @@ interface NavLinksProps {
 }
 
 const NavLinks = ({ links }: NavLinksProps) => {
+  const isAuth = false;
+  if (!isAuth) return null;
+
   return (
     <div className="flex items-center justify-center space-x-4">
       {links.map((link) => (
