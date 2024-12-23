@@ -1,5 +1,4 @@
 import { useForm } from "react-hook-form";
-import { useSearchParams } from "react-router-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -13,22 +12,23 @@ import {
 } from "@/components/ui/form";
 import { ArrowRight, LoaderCircle } from "lucide-react";
 
-import useCreatePassoword from "./useCreatePassword";
+import useResetPassword from "./useResetPassword";
 import {
-  createPasswordSchema,
-  CreatePasswordValues,
-} from "./create-password-schema";
+  resetPasswordSchema,
+  ResetPasswordValues,
+} from "./reset-password-schema";
+import { useSearchParams } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
 
-const CreatePassworedForm = () => {
+const ResetPasswordForm = () => {
   const [searchParams] = useSearchParams();
-  const { isLoading, mutate } = useCreatePassoword();
-  const form = useForm<CreatePasswordValues>({
-    resolver: zodResolver(createPasswordSchema),
+  const { isLoading, mutate } = useResetPassword();
+  const form = useForm<ResetPasswordValues>({
+    resolver: zodResolver(resetPasswordSchema),
     mode: "onChange",
   });
 
-  const onSubmit = (data: CreatePasswordValues) => {
+  const onSubmit = (data: ResetPasswordValues) => {
     const token = searchParams.get("token");
     if (!token) {
       toast({
@@ -86,7 +86,7 @@ const CreatePassworedForm = () => {
         />
 
         <Button type="submit" disabled={isLoading}>
-          Create Passowrd
+          Reset Passowrd
           {isLoading ? (
             <LoaderCircle className="ml-2 size-4 animate-spin" />
           ) : (
@@ -98,4 +98,4 @@ const CreatePassworedForm = () => {
   );
 };
 
-export default CreatePassworedForm;
+export default ResetPasswordForm;

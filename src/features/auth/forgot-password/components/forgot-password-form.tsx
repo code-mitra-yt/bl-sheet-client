@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ArrowRight, LoaderCircle } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -17,18 +16,17 @@ import {
   forgotPasswordSchema,
   ForgotPasswordValues,
 } from "./forgot-password-schema";
+import useForgotPassword from "./useForgotPassword";
 
 const ForgotPasswordForm = () => {
+  const { isLoading, mutate } = useForgotPassword();
   const form = useForm<ForgotPasswordValues>({
     resolver: zodResolver(forgotPasswordSchema),
     mode: "onChange",
   });
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const onSubmit = (data: ForgotPasswordValues) => {
-    setIsLoading(true);
-    console.log(data);
-    setTimeout(() => setIsLoading(false), 3000);
+    mutate({ data });
   };
 
   return (

@@ -12,6 +12,7 @@ import SignUpPage from "./auth/sign-up";
 import SignInPage from "./auth/sign-in";
 import ForgotPassword from "./auth/forgot-password";
 import CreatePassword from "./auth/create-password";
+import ResetPassword from "./auth/reset-password";
 
 export {
   HomePage,
@@ -26,4 +27,5 @@ export {
   SignInPage,
   ForgotPassword,
   CreatePassword,
+  ResetPassword,
 };

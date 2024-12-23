@@ -22,6 +22,18 @@ const apis = {
       url: urls.verifyEmailAndCreatePassword,
       data,
     }),
+  forgotPassword: ({ data }: RequestType) =>
+    request({
+      method: "POST",
+      url: urls.forgotPassword,
+      data,
+    }),
+  resetPassword: ({ data }: RequestType) =>
+    request({
+      method: "POST",
+      url: urls.resetPassword,
+      data,
+    }),
 };
 
 export default apis;
