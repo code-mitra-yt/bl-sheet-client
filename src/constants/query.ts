@@ -1,0 +1,9 @@
+const QUERY = {
+  AUTH: {
+    REGISTER: "REGISTER",
+    LOGIN: "LOGIN",
+    VERIFY_EMAIL_AND_CREATE_PASSWORD: "VERIFY_EMAIL_AND_CREATE_PASSWORD",
+  },
+};
+
+export default QUERY;

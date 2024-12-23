@@ -11,6 +11,7 @@ import Profile from "./dashboard/profile";
 import SignUpPage from "./auth/sign-up";
 import SignInPage from "./auth/sign-in";
 import ForgotPassword from "./auth/forgot-password";
+import CreatePassword from "./auth/create-password";
 
 export {
   HomePage,
@@ -24,4 +25,5 @@ export {
   SignUpPage,
   SignInPage,
   ForgotPassword,
+  CreatePassword,
 };

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
@@ -14,18 +13,17 @@ import {
 import { ArrowRight, LoaderCircle } from "lucide-react";
 
 import { signUpFormSchema, SignUpFormValues } from "./sign-up-schema";
+import useSignUp from "./useSignUp";
 
 const SignUpForm = () => {
+  const { isLoading, mutate } = useSignUp();
   const form = useForm<SignUpFormValues>({
     resolver: zodResolver(signUpFormSchema),
     mode: "onChange",
   });
 
-  const [isLoading, setIsLoading] = useState<boolean>(false);
   const onSubmit = (data: SignUpFormValues) => {
-    setIsLoading(true);
-    console.log(data);
-    setTimeout(() => setIsLoading(false), 3000);
+    mutate({ data });
   };
 
   return (

@@ -1,3 +1,4 @@
 import siteConfigs from "./site-configs";
+import request from "./request";
 
-export { siteConfigs };
+export { siteConfigs, request };

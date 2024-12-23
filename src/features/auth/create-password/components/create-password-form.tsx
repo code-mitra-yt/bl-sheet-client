@@ -12,18 +12,33 @@ import {
 } from "@/components/ui/form";
 import { ArrowRight, LoaderCircle } from "lucide-react";
 
-import useSignIn from "./useSignIn";
-import { signInFormSchema, SignInFormValues } from "./sign-in-schema";
+import useCreatePassoword from "./useCreatePassword";
+import {
+  createPasswordSchema,
+  CreatePasswordValues,
+} from "./create-password-schema";
+import { useSearchParams } from "react-router-dom";
+import { toast } from "@/hooks/use-toast";
 
 const SignInForm = () => {
-  const { isLoading, mutate } = useSignIn();
-  const form = useForm<SignInFormValues>({
-    resolver: zodResolver(signInFormSchema),
+  const [searchParams] = useSearchParams();
+  const { isLoading, mutate } = useCreatePassoword();
+  const form = useForm<CreatePasswordValues>({
+    resolver: zodResolver(createPasswordSchema),
     mode: "onChange",
   });
 
-  const onSubmit = (data: SignInFormValues) => {
-    mutate({ data });
+  const onSubmit = (data: CreatePasswordValues) => {
+    const token = searchParams.get("token");
+    if (!token) {
+      toast({
+        title: "Error",
+        description: "Token not found",
+        variant: "destructive",
+      });
+      return;
+    }
+    mutate({ data: { ...data, token } });
   };
 
   return (
@@ -32,25 +47,6 @@ const SignInForm = () => {
         className="flex flex-col space-y-6 md:px-0"
         onSubmit={form.handleSubmit(onSubmit)}
       >
-        <FormField
-          control={form.control}
-          name="email"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Email</FormLabel>
-              <FormControl>
-                <Input
-                  type="email"
-                  placeholder="example@blsheet.com"
-                  className="focus-visible:ring-1"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
         <FormField
           control={form.control}
           name="password"
@@ -70,8 +66,27 @@ const SignInForm = () => {
           )}
         />
 
+        <FormField
+          control={form.control}
+          name="confirmPassword"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Confirm Password</FormLabel>
+              <FormControl>
+                <Input
+                  type="password"
+                  placeholder="********"
+                  className="focus-visible:ring-1"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
         <Button type="submit" disabled={isLoading}>
-          Login An Account
+          Create Passowrd
           {isLoading ? (
             <LoaderCircle className="ml-2 size-4 animate-spin" />
           ) : (
