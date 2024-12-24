@@ -1,20 +1,29 @@
 import { useMutation } from "react-query";
-
+import { useDispatch } from "react-redux";
+import { setAuth } from "@/store/slices/auth-slice";
 import { useToast } from "@/hooks/use-toast";
 
 import apis from "../../apis";
 
-const useSignUp = () => {
+const useSignIn = () => {
+  const dispatch = useDispatch();
   const { toast } = useToast();
 
   const { isLoading, mutate, data } = useMutation({
-    mutationFn: ({ data }: { data: { email: string; fullName: string } }) =>
-      apis.register({ data }),
-    onSuccess: ({ data }) => {
+    mutationFn: ({ data }: { data: { email: string; password: string } }) =>
+      apis.login({ data }),
+    onSuccess: ({ data: response }) => {
       toast({
         title: "Success",
-        description: data?.message,
+        description: response.message,
       });
+
+      dispatch(
+        setAuth({
+          user: response.data.user,
+          authToken: response.data.token,
+        })
+      );
     },
     onError: (error: any) => {
       toast({
@@ -29,4 +38,4 @@ const useSignUp = () => {
   return { isLoading, mutate, data };
 };
 
-export default useSignUp;
+export default useSignIn;

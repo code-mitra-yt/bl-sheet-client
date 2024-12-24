@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { ArrowRight, LoaderCircle } from "lucide-react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -16,7 +17,7 @@ import {
   forgotPasswordSchema,
   ForgotPasswordValues,
 } from "./forgot-password-schema";
-import useForgotPassword from "./useForgotPassword";
+import useForgotPassword from "./use-forgot-password";
 
 const ForgotPasswordForm = () => {
   const { isLoading, mutate } = useForgotPassword();

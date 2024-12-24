@@ -34,6 +34,13 @@ const apis = {
       url: urls.resetPassword,
       data,
     }),
+
+  getSelf: ({ data }: RequestType) =>
+    request({
+      method: "POST",
+      url: urls.getSelf,
+      data,
+    }),
 };
 
 export default apis;

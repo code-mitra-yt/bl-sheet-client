@@ -1,8 +1,9 @@
 import { Button } from "@/components";
+import useAuth from "@/hooks/use-auth";
 import { useNavigate } from "react-router-dom";
 
 const AuthButtons = () => {
-  const isAuth = false;
+  const { isAuth } = useAuth();
   const navigate = useNavigate();
   const redirect = (url: string) => navigate(url);
 

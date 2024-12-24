@@ -1,3 +1,4 @@
+import useAuth from "@/hooks/use-auth";
 import { cn } from "@/lib/utils";
 import { NavLinkType } from "@/types";
 import { NavLink } from "react-router-dom";
@@ -7,7 +8,7 @@ interface NavLinksProps {
 }
 
 const NavLinks = ({ links }: NavLinksProps) => {
-  const isAuth = false;
+  const { isAuth } = useAuth();
   if (!isAuth) return null;
 
   return (

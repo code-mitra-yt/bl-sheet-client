@@ -1,15 +1,14 @@
 import { useMutation } from "react-query";
-
 import { useToast } from "@/hooks/use-toast";
 
 import apis from "../../apis";
 
-const useSignIn = () => {
+const useSignUp = () => {
   const { toast } = useToast();
 
   const { isLoading, mutate, data } = useMutation({
-    mutationFn: ({ data }: { data: { email: string; password: string } }) =>
-      apis.login({ data }),
+    mutationFn: ({ data }: { data: { email: string; fullName: string } }) =>
+      apis.register({ data }),
     onSuccess: ({ data }) => {
       toast({
         title: "Success",
@@ -29,4 +28,4 @@ const useSignIn = () => {
   return { isLoading, mutate, data };
 };
 
-export default useSignIn;
+export default useSignUp;

@@ -1,6 +1,8 @@
-import { cn } from "@/lib/utils";
 import { NavLink } from "react-router-dom";
 import { CircleUserRound, LogOut } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+import { useLogout } from "@/hooks";
 import { Separator } from "@/components/ui/separator";
 import {
   SidebarFooter,
@@ -10,6 +12,8 @@ import {
 
 const NavSecondary = () => {
   const { open, isMobile } = useSidebar();
+  const { logout } = useLogout();
+
   return (
     <SidebarFooter>
       <div className={cn("bg-active p-4 rounded-md", !open && "hidden")}>
@@ -39,6 +43,7 @@ const NavSecondary = () => {
           className={cn(
             "flex items-center space-x-2 hover:bg-muted p-2 rounded-lg text-foreground"
           )}
+          onClick={logout}
         >
           <LogOut size={!open ? 15 : 15} />
           <span className={cn("text-sm", !open && !isMobile && "hidden")}>

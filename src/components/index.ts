@@ -7,6 +7,7 @@ import AuthButtons from "./shared/auth-buttons";
 import ListComponent from "./shared/list-component";
 import { ThemeProvider, useTheme } from "./shared/theme-provider";
 import DashboardSidebar from "./shared/dashboard-sidebar/project-sidebar";
+import Loader from "./shared/loader";
 
 import GridEffect from "./effects/grid-effect";
 
@@ -28,6 +29,7 @@ export {
   useTheme,
   ModeToggle,
   DashboardSidebar,
+  Loader,
   GridEffect,
   SignInIcon,
   SignUpIcon,

@@ -1,13 +1,21 @@
-import { Outlet } from "react-router-dom";
-import { DashboardSidebar, ModeToggle } from "@/components";
+import { Navigate, Outlet } from "react-router-dom";
+import { DashboardSidebar, ModeToggle, Loader } from "@/components";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import useAuth from "@/hooks/use-auth";
+import { useSelf } from "@/hooks";
 
 const DashboardLayout = () => {
+  const { user, isAuth } = useAuth();
+  const { isLoading } = useSelf();
+
+  if (!isAuth) return <Navigate to="/auth/sign-in" />;
+  if (isLoading) return <Loader />;
+
   return (
     <SidebarProvider>
       <DashboardSidebar />
@@ -18,14 +26,13 @@ const DashboardLayout = () => {
               <SidebarTrigger className="-ml-1 size-8" />
               <div className="flex items-center justify-center space-x-2">
                 <Avatar className="size-7">
-                  <AvatarImage
-                    src="https://github.com/shadcn.png"
-                    alt="@shadcn"
-                  />
-                  <AvatarFallback>R</AvatarFallback>
+                  <AvatarImage src={user?.avatar?.url} alt="profile" />
+                  <AvatarFallback className="bg-active text-white">
+                    {user?.fullName[0].toUpperCase()}
+                  </AvatarFallback>
                 </Avatar>
                 <h1 className="text-foreground text-sm font-medium">
-                  Rushi Mungse
+                  {user?.fullName}
                 </h1>
               </div>
             </div>

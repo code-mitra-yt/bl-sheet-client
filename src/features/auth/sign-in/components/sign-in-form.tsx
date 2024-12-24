@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { ArrowRight, LoaderCircle } from "lucide-react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -10,9 +12,8 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { ArrowRight, LoaderCircle } from "lucide-react";
 
-import useSignIn from "./useSignIn";
+import useSignIn from "./use-sign-in";
 import { signInFormSchema, SignInFormValues } from "./sign-in-schema";
 
 const SignInForm = () => {

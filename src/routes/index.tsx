@@ -3,7 +3,7 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { AppLayout, DashboardLayout, RootLayout } from "@/layouts";
+import { AppLayout, AuthLayout, DashboardLayout, RootLayout } from "@/layouts";
 import {
   HomePage,
   DashboardHome,
@@ -23,7 +23,7 @@ import {
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
-      <Route path="auth">
+      <Route path="auth" element={<AuthLayout />}>
         <Route path="sign-up" element={<SignUpPage />} />
         <Route path="sign-in" element={<SignInPage />} />
         <Route path="forgot-password" element={<ForgotPassword />} />

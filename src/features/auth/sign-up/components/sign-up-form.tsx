@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import { ArrowRight, LoaderCircle } from "lucide-react";
+
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -10,10 +12,9 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { ArrowRight, LoaderCircle } from "lucide-react";
 
 import { signUpFormSchema, SignUpFormValues } from "./sign-up-schema";
-import useSignUp from "./useSignUp";
+import useSignUp from "./use-sign-up";
 
 const SignUpForm = () => {
   const { isLoading, mutate } = useSignUp();

@@ -1,4 +1,8 @@
 import { useForm } from "react-hook-form";
+import { useSearchParams } from "react-router-dom";
+import { ArrowRight, LoaderCircle } from "lucide-react";
+
+import { toast } from "@/hooks/use-toast";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -10,15 +14,12 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { ArrowRight, LoaderCircle } from "lucide-react";
 
-import useResetPassword from "./useResetPassword";
+import useResetPassword from "./use-reset-password";
 import {
   resetPasswordSchema,
   ResetPasswordValues,
 } from "./reset-password-schema";
-import { useSearchParams } from "react-router-dom";
-import { toast } from "@/hooks/use-toast";
 
 const ResetPasswordForm = () => {
   const [searchParams] = useSearchParams();
