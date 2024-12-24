@@ -8,6 +8,7 @@ import ListComponent from "./shared/list-component";
 import { ThemeProvider, useTheme } from "./shared/theme-provider";
 import DashboardSidebar from "./shared/dashboard-sidebar/project-sidebar";
 import Loader from "./shared/loader";
+import Logo from "./shared/logo";
 
 import GridEffect from "./effects/grid-effect";
 
@@ -30,6 +31,7 @@ export {
   ModeToggle,
   DashboardSidebar,
   Loader,
+  Logo,
   GridEffect,
   SignInIcon,
   SignUpIcon,

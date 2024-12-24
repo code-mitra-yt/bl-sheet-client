@@ -1,10 +1,12 @@
 import { useMutation } from "react-query";
-import { useToast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
+import { useToast } from "@/hooks";
 
 import apis from "../../apis";
 
 const useSignUp = () => {
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const { isLoading, mutate, data } = useMutation({
     mutationFn: ({ data }: { data: { email: string; fullName: string } }) =>
@@ -14,6 +16,7 @@ const useSignUp = () => {
         title: "Success",
         description: data?.message,
       });
+      navigate(`/guidance/verification?email=${data?.data?.email}`);
     },
     onError: (error: any) => {
       toast({

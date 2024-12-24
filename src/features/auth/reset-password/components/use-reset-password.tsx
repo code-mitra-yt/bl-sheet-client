@@ -1,10 +1,13 @@
 import { useMutation } from "react-query";
-import { useToast } from "@/hooks/use-toast";
+import { useDispatch } from "react-redux";
+import { setAuth } from "@/store/slices/auth-slice";
+import { useToast } from "@/hooks";
 
 import apis from "../../apis";
 
 const useResetPassword = () => {
   const { toast } = useToast();
+  const dispatch = useDispatch();
 
   const { isLoading, mutate, data } = useMutation({
     mutationFn: ({
@@ -12,11 +15,17 @@ const useResetPassword = () => {
     }: {
       data: { password: string; confirmPassword: string; token: string };
     }) => apis.resetPassword({ data }),
-    onSuccess: ({ data }) => {
+    onSuccess: ({ data: response }) => {
       toast({
         title: "Success",
-        description: data?.message,
+        description: response?.message,
       });
+      dispatch(
+        setAuth({
+          user: response.data.user,
+          authToken: response.data.token,
+        })
+      );
     },
     onError: (error: any) => {
       toast({

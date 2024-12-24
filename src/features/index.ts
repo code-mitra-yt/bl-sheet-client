@@ -14,6 +14,8 @@ import ForgotPassword from "./auth/forgot-password";
 import CreatePassword from "./auth/create-password";
 import ResetPassword from "./auth/reset-password";
 
+import Verification from "./guidance/verification";
+
 export {
   HomePage,
   TermsServices,
@@ -28,4 +30,5 @@ export {
   ForgotPassword,
   CreatePassword,
   ResetPassword,
+  Verification,
 };

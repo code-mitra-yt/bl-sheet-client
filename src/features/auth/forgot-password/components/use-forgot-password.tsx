@@ -1,9 +1,11 @@
 import { useMutation } from "react-query";
-import { toast } from "@/hooks/use-toast";
+import { useNavigate } from "react-router-dom";
+import { toast } from "@/hooks";
 
 import apis from "../../apis";
 
 const useForgotPassword = () => {
+  const navigate = useNavigate();
   const { isLoading, mutate, data } = useMutation({
     mutationFn: ({ data }: { data: { email: string } }) =>
       apis.forgotPassword({ data }),
@@ -12,6 +14,7 @@ const useForgotPassword = () => {
         title: "Success",
         description: data?.message,
       });
+      navigate(`/guidance/verification?email=${data?.data?.email}`);
     },
     onError: (error: any) => {
       toast({

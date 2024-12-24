@@ -18,6 +18,7 @@ import {
   Profile,
   CreatePassword,
   ResetPassword,
+  Verification,
 } from "@/features";
 
 const router = createBrowserRouter(
@@ -31,6 +32,10 @@ const router = createBrowserRouter(
         <Route path="reset-password" element={<ResetPassword />} />
         <Route path="terms-of-service" element={<TermsServices />} />
         <Route path="privacy-policy" element={<PrivacyPolicy />} />
+      </Route>
+
+      <Route path="guidance">
+        <Route path="verification" element={<Verification />} />
       </Route>
 
       <Route element={<AppLayout />}>
