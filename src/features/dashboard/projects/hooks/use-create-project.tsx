@@ -6,9 +6,15 @@ import { ProjectValues } from "../components/project-schema";
 
 interface UseCreateProjectProps {
   refetchProjects: () => void;
+  setOpen: (open: boolean) => void;
+  form: any;
 }
 
-const useCreateProject = ({ refetchProjects }: UseCreateProjectProps) => {
+const useCreateProject = ({
+  refetchProjects,
+  setOpen,
+  form,
+}: UseCreateProjectProps) => {
   const { authToken } = useAuth();
 
   const { isLoading, mutate } = useMutation({
@@ -20,6 +26,8 @@ const useCreateProject = ({ refetchProjects }: UseCreateProjectProps) => {
         description: "Project created successfully",
       });
       refetchProjects();
+      setOpen(false);
+      form.reset();
     },
     onError: (error: any) => {
       toast({

@@ -25,26 +25,31 @@ import {
 import { projectShema, ProjectValues } from "./project-schema";
 import useCreateProject from "../hooks/use-create-project";
 import { Separator } from "@/components/ui/separator";
+import { useState } from "react";
 
 interface CreateProjectProps {
   refetchProjects: () => void;
 }
 const CreateProject = ({ refetchProjects }: CreateProjectProps) => {
-  const { isLoading, mutate } = useCreateProject({ refetchProjects });
   const form = useForm<ProjectValues>({
     resolver: zodResolver(projectShema),
     mode: "onChange",
   });
+  const [open, setOpen] = useState<boolean>(false);
+  const { isLoading, mutate } = useCreateProject({
+    refetchProjects,
+    setOpen,
+    form,
+  });
 
   const onSubmit = (data: ProjectValues) => {
     mutate({ data });
-    form.reset();
   };
 
   return (
-    <Sheet>
+    <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="outline">
+        <Button variant="outline" onClick={() => setOpen(true)}>
           <Plus />
           <span>Create</span>
         </Button>
@@ -97,14 +102,12 @@ const CreateProject = ({ refetchProjects }: CreateProjectProps) => {
               />
 
               <SheetFooter>
-                <SheetClose asChild>
-                  <Button variant="outline" type="submit" disabled={isLoading}>
-                    {isLoading && (
-                      <LoaderCircle className="mr-1 size-4 animate-spin" />
-                    )}
-                    Create
-                  </Button>
-                </SheetClose>
+                <Button variant="outline" type="submit" disabled={isLoading}>
+                  {isLoading && (
+                    <LoaderCircle className="mr-1 size-4 animate-spin" />
+                  )}
+                  Create
+                </Button>
               </SheetFooter>
             </form>
           </Form>
