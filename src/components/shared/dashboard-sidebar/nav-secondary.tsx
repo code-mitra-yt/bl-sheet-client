@@ -16,9 +16,9 @@ const NavSecondary = () => {
 
   return (
     <SidebarFooter>
-      <div className={cn("bg-active p-4 rounded-md", !open && "hidden")}>
-        <h1 className="text-white font-medium mb-2">Free Plan</h1>
-        <ul className="list-disc ml-6 text-white text-sm">
+      <div className={cn("bg-muted border p-4 rounded-md", !open && "hidden")}>
+        <h1 className="font-medium mb-2">Free Plan</h1>
+        <ul className="list-disc ml-6 text-sm">
           <li>1 Project </li>
           <li>5 Members</li>
         </ul>

@@ -4,6 +4,10 @@ const QUERY = {
     LOGIN: "LOGIN",
     VERIFY_EMAIL_AND_CREATE_PASSWORD: "VERIFY_EMAIL_AND_CREATE_PASSWORD",
   },
+
+  PROJECT: {
+    GET_PROJECT: "GET_PROJECT",
+  },
 };
 
 export default QUERY;

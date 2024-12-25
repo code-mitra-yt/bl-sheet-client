@@ -9,6 +9,7 @@ import { ThemeProvider, useTheme } from "./shared/theme-provider";
 import DashboardSidebar from "./shared/dashboard-sidebar/project-sidebar";
 import Loader from "./shared/loader";
 import Logo from "./shared/logo";
+import ProjectHeader from "./shared/project-header";
 
 import GridEffect from "./effects/grid-effect";
 
@@ -29,6 +30,7 @@ export {
   ThemeProvider,
   useTheme,
   ModeToggle,
+  ProjectHeader,
   DashboardSidebar,
   Loader,
   Logo,

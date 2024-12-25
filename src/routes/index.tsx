@@ -3,7 +3,13 @@ import {
   createRoutesFromElements,
   Route,
 } from "react-router-dom";
-import { AppLayout, AuthLayout, DashboardLayout, RootLayout } from "@/layouts";
+import {
+  AppLayout,
+  AuthLayout,
+  DashboardLayout,
+  RootLayout,
+  ProjectLayout,
+} from "@/layouts";
 import {
   HomePage,
   DashboardHome,
@@ -19,6 +25,8 @@ import {
   CreatePassword,
   ResetPassword,
   Verification,
+  ProjectDetails,
+  ProjectMembers,
 } from "@/features";
 
 const router = createBrowserRouter(
@@ -44,7 +52,13 @@ const router = createBrowserRouter(
 
       <Route path="dashboard" element={<DashboardLayout />}>
         <Route path="home" element={<DashboardHome />} />
-        <Route path="projects" element={<Projects />} />
+        <Route path="projects">
+          <Route index element={<Projects />} />
+          <Route path=":projectId" element={<ProjectLayout />}>
+            <Route path="details" element={<ProjectDetails />} />
+            <Route path="members" element={<ProjectMembers />} />
+          </Route>
+        </Route>
         <Route path="todos" element={<Todos />} />
         <Route path="settings" element={<Settings />} />
         <Route path="profile" element={<Profile />} />
