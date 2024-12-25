@@ -56,3 +56,36 @@ export interface User {
   loginType: UserLoginType;
   pricingModel: PricingModel;
 }
+
+export enum MemberRole {
+  ADMIN = "Admin",
+  MEMBER = "Member",
+  OWNER = "Owner",
+}
+
+export enum InvitationStatus {
+  PENDING = "Pending",
+  ACCEPTED = "Accepted",
+  REJECTED = "Rejected",
+}
+
+export interface Member {
+  _id?: string;
+  userId: string;
+  projectId: string;
+  email: string;
+  role: MemberRole;
+  invitationStatus?: InvitationStatus;
+}
+
+export interface Project {
+  _id: string;
+  memberId: string;
+  projectId: string;
+  role: MemberRole;
+  name: string;
+  description: string;
+  tags: string[];
+  isDeleted: boolean;
+  owner: User;
+}
