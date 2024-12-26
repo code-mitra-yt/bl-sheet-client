@@ -1,4 +1,4 @@
-import { Member } from "@/types";
+import { InvitationStatus, Member } from "@/types";
 import { cn } from "@/lib/utils";
 import { Loader } from "@/components";
 import { INVITATION_STATUS_COLORS, MEMBER_ROLE_COLORS } from "@/constants";
@@ -41,20 +41,24 @@ const MemberTable = ({ members, isLoading }: MemberTableProps) => {
         <TableBody>
           {members.map((member: Member) => (
             <TableRow key={member._id}>
-              <TableCell>
-                <div className="flex items-center space-x-2">
-                  <Avatar className="size-7">
-                    <AvatarImage
-                      src={member?.user?.avatar?.url}
-                      alt="profile-picture"
-                    />
-                    <AvatarFallback className="bg-active text-white">
-                      {member.user.fullName[0].toUpperCase()}
-                    </AvatarFallback>
-                  </Avatar>
-                  <span>{member.user.fullName}</span>
-                </div>
-              </TableCell>
+              {member.invitationStatus === InvitationStatus.ACCEPTED ? (
+                <TableCell>
+                  <div className="flex items-center space-x-2">
+                    <Avatar className="size-7">
+                      <AvatarImage
+                        src={member?.user?.avatar?.url}
+                        alt="profile-picture"
+                      />
+                      <AvatarFallback className="bg-active text-white">
+                        {member.user.fullName[0].toUpperCase()}
+                      </AvatarFallback>
+                    </Avatar>
+                    <span>{member.user.fullName}</span>
+                  </div>
+                </TableCell>
+              ) : (
+                <TableCell>-</TableCell>
+              )}
               <TableCell>{member.email}</TableCell>
               <TableCell>
                 <Badge

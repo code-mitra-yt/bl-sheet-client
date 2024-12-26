@@ -11,6 +11,13 @@ const apis = {
       authToken,
       params,
     }),
+  inviteMember: ({ authToken, data }: RequestType) =>
+    request({
+      method: "POST",
+      url: urls.inviteMember,
+      authToken,
+      data,
+    }),
 };
 
 export default apis;

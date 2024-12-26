@@ -10,7 +10,12 @@ import useGetMemberFilters from "./use-get-member-filters";
 const useGetMembers = () => {
   const { projectId } = useParams();
   const { authToken } = useAuth();
-  const { email, invitationStatus } = useGetMemberFilters();
+  const {
+    email,
+    invitationStatus,
+    page = 1,
+    limit = 10,
+  } = useGetMemberFilters();
 
   const {
     isLoading,
@@ -19,12 +24,12 @@ const useGetMembers = () => {
   } = useQuery({
     queryKey: [
       QUERY.MEMBER.GET_MEMBERS,
-      { projectId, email, invitationStatus },
+      { projectId, email, invitationStatus, page, limit },
     ],
     queryFn: () =>
       apis.getMembers({
         authToken,
-        params: { projectId, email, invitationStatus },
+        params: { projectId, email, invitationStatus, page, limit },
       }),
     onError: (error: any) => {
       toast({

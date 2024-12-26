@@ -6,8 +6,15 @@ import useGetMemberFilters from "./hooks/use-get-member-filters";
 
 const ProjectMembers = () => {
   const { page = 1, limit = 10, setFilters } = useGetMemberFilters();
-  const { members, isLoading, total, hasNextPage, hasPrevPage, totalPages } =
-    useGetMembers();
+  const {
+    members,
+    isLoading,
+    total,
+    hasNextPage,
+    hasPrevPage,
+    totalPages,
+    refetch,
+  } = useGetMembers();
 
   return (
     <div className="space-y-2">
@@ -19,7 +26,7 @@ const ProjectMembers = () => {
           </span>
         </div>
         <div className="flex items-center sm:space-x-2 flex-col sm:flex-row gap-2">
-          <MemberFilters />
+          <MemberFilters refetchMembers={refetch} />
         </div>
       </div>
       <MemberTable members={members} isLoading={isLoading} />

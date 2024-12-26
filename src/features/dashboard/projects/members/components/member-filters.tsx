@@ -11,7 +11,7 @@ const options = [
   { value: InvitationStatus.REJECTED, label: InvitationStatus.REJECTED },
 ];
 
-const MemberFilters = () => {
+const MemberFilters = ({ refetchMembers }: { refetchMembers: () => void }) => {
   const { email, invitationStatus, setFilters } = useGetMemberFilters();
 
   return (
@@ -30,7 +30,7 @@ const MemberFilters = () => {
           selectedValue={invitationStatus}
           options={options}
         />
-        <InviteMember />
+        <InviteMember refetchMembers={refetchMembers} />
       </div>
     </>
   );

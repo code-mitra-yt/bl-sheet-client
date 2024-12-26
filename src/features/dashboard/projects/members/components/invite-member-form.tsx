@@ -14,6 +14,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import useInviteMember from "../hooks/use-invite-member";
+import { useParams } from "react-router-dom";
 
 export const inviteMemberSchema = z.object({
   email: z
@@ -24,16 +25,25 @@ export const inviteMemberSchema = z.object({
 });
 export type InviteMemberValues = z.infer<typeof inviteMemberSchema>;
 
-const SignUpForm = () => {
-  const { isLoading, mutate } = useInviteMember();
+interface InviteMemberProps {
+  refetchMembers: () => void;
+  onClose: () => void;
+}
+
+const InviteMemberForm = ({ refetchMembers, onClose }: InviteMemberProps) => {
+  const { projectId } = useParams();
   const form = useForm<InviteMemberValues>({
     resolver: zodResolver(inviteMemberSchema),
     mode: "onChange",
   });
+  const { isLoading, mutate } = useInviteMember({
+    refetchMembers,
+    form,
+    onClose,
+  });
 
   const onSubmit = (data: InviteMemberValues) => {
-    console.log(data);
-    mutate();
+    mutate({ data: { ...data, projectId: projectId as string } });
   };
 
   return (
@@ -72,4 +82,4 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default InviteMemberForm;

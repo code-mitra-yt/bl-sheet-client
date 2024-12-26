@@ -12,8 +12,11 @@ import {
 } from "@/components/ui/dialog";
 
 import InviteMemberForm from "./invite-member-form";
+interface InviteMemberProps {
+  refetchMembers: () => void;
+}
 
-export function InviteMember() {
+function InviteMember({ refetchMembers }: InviteMemberProps) {
   const { project } = useProjectContext();
   const [open, setOpen] = useState<boolean>(false);
 
@@ -39,7 +42,10 @@ export function InviteMember() {
           </DialogDescription>
         </DialogHeader>
         <div className="flex items-center w-full">
-          <InviteMemberForm />
+          <InviteMemberForm
+            refetchMembers={refetchMembers}
+            onClose={() => setOpen(false)}
+          />
         </div>
       </DialogContent>
     </Dialog>
