@@ -10,6 +10,10 @@ import DashboardSidebar from "./shared/dashboard-sidebar/project-sidebar";
 import Loader from "./shared/loader";
 import Logo from "./shared/logo";
 import ProjectHeader from "./shared/project-header";
+import DottedSeparator from "./shared/dotted-separator";
+import SearchInput from "./shared/search-input";
+import SelectFilters from "./shared/select-filters";
+import Pagination from "./shared/pagination";
 
 import GridEffect from "./effects/grid-effect";
 
@@ -34,6 +38,10 @@ export {
   DashboardSidebar,
   Loader,
   Logo,
+  DottedSeparator,
+  SelectFilters,
+  SearchInput,
+  Pagination,
   GridEffect,
   SignInIcon,
   SignUpIcon,

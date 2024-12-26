@@ -8,6 +8,10 @@ const QUERY = {
   PROJECT: {
     GET_PROJECT: "GET_PROJECT",
   },
+
+  MEMBER: {
+    GET_MEMBERS: "GET_MEMBERS",
+  },
 };
 
 export default QUERY;

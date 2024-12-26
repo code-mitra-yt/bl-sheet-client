@@ -23,12 +23,16 @@ const TableView = ({ projects }: TableViewProps) => {
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead className="min-w-[200px] text-active">Name</TableHead>
-            <TableHead className="min-w-[200px] text-active">
+            <TableHead className="min-w-[200px] text-foreground">
+              Name
+            </TableHead>
+            <TableHead className="min-w-[200px] text-foreground">
               Description
             </TableHead>
-            <TableHead className="min-w-[250px] text-active">Owner</TableHead>
-            <TableHead className="text-center text-active">Role</TableHead>
+            <TableHead className="min-w-[250px] text-foreground">
+              Owner
+            </TableHead>
+            <TableHead className="text-foreground">Role</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -57,8 +61,13 @@ const TableView = ({ projects }: TableViewProps) => {
                   <span>{project.owner.fullName}</span>
                 </div>
               </TableCell>
-              <TableCell className="text-center">
-                <Badge className={cn(MEMBER_ROLE_COLORS[project.role])}>
+              <TableCell>
+                <Badge
+                  className={cn(
+                    MEMBER_ROLE_COLORS[project.role],
+                    "w-[100px] flex items-center justify-center"
+                  )}
+                >
                   {project.role}
                 </Badge>
               </TableCell>

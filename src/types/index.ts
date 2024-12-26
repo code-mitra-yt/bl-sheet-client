@@ -76,6 +76,7 @@ export interface Member {
   email: string;
   role: MemberRole;
   invitationStatus?: InvitationStatus;
+  user: User;
 }
 
 export interface Project {
