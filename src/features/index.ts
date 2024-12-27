@@ -18,6 +18,7 @@ import CreatePassword from "./auth/create-password";
 import ResetPassword from "./auth/reset-password";
 
 import Verification from "./guidance/verification";
+import Invitation from "./guidance/invitation";
 
 export {
   HomePage,
@@ -36,4 +37,5 @@ export {
   CreatePassword,
   ResetPassword,
   Verification,
+  Invitation,
 };

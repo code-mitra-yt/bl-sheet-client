@@ -18,6 +18,13 @@ const apis = {
       authToken,
       data,
     }),
+  changeInvitationStatus: ({ authToken, data }: RequestType) =>
+    request({
+      method: "PATCH",
+      url: urls.changeInvitationStatus,
+      authToken,
+      data,
+    }),
 };
 
 export default apis;

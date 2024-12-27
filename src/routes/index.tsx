@@ -27,6 +27,7 @@ import {
   Verification,
   ProjectDetails,
   ProjectMembers,
+  Invitation,
 } from "@/features";
 
 const router = createBrowserRouter(
@@ -44,6 +45,7 @@ const router = createBrowserRouter(
 
       <Route path="guidance">
         <Route path="verification" element={<Verification />} />
+        <Route path="invitation" element={<Invitation />} />
       </Route>
 
       <Route element={<AppLayout />}>
