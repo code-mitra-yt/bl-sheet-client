@@ -49,12 +49,12 @@ const TableView = ({ projects }: TableViewProps) => {
               <TableCell>{project.description}</TableCell>
               <TableCell>
                 <div className="flex items-center space-x-2">
-                  <Avatar className="size-7">
+                  <Avatar className="size-6">
                     <AvatarImage
                       src={project?.owner?.avatar?.url}
                       alt="profile-picture"
                     />
-                    <AvatarFallback className="bg-active text-white">
+                    <AvatarFallback className="bg-primary text-card">
                       {project.owner.fullName[0].toUpperCase()}
                     </AvatarFallback>
                   </Avatar>

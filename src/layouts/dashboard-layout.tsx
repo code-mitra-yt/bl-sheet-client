@@ -25,9 +25,9 @@ const DashboardLayout = () => {
             <div className="flex items-center gap-2">
               <SidebarTrigger className="-ml-1 size-8" />
               <div className="flex items-center justify-center space-x-2">
-                <Avatar className="size-7">
+                <Avatar className="size-6">
                   <AvatarImage src={user?.avatar?.url} alt="profile" />
-                  <AvatarFallback className="bg-active text-white">
+                  <AvatarFallback className="bg-primary text-card text-sm">
                     {user?.fullName[0].toUpperCase()}
                   </AvatarFallback>
                 </Avatar>

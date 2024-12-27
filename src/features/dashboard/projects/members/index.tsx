@@ -21,7 +21,7 @@ const ProjectMembers = () => {
       <div className="p-2 bg-muted border flex-col sm:flex-row rounded-lg flex gap-2 sm:items-center sm:justify-between">
         <div>
           <span className="text-base md:text-lg ">Team Members</span>{" "}
-          <span className="bg-active text-white rounded-xl sm:px-2 px-4 md:px-4 text-xs md:text-sm py-1">
+          <span className="text-card bg-secondary-foreground rounded-xl sm:px-2 px-4 md:px-4 text-xs md:text-sm py-1">
             {total}
           </span>
         </div>

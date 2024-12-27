@@ -14,11 +14,11 @@ const NavHeader = () => {
       className="cursor-pointer h-16 flex items-center justify-center"
     >
       <div className={cn("flex items-center", open && "space-x-4")}>
-        <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-active text-sidebar-primary-foreground">
-          <SquareKanban className="size-4" />
+        <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-primary">
+          <SquareKanban className="size-4 text-card" />
         </div>
         <div className="grid flex-1 text-left text-lg leading-tight">
-          <span className="truncate font-semibold text-active">
+          <span className="truncate font-semibold text-primary">
             {siteConfigs.name.toUpperCase()}
           </span>
         </div>

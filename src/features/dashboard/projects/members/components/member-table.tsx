@@ -56,12 +56,12 @@ const MemberTable = ({
               {member.invitationStatus === InvitationStatus.ACCEPTED ? (
                 <TableCell>
                   <div className="flex items-center space-x-2">
-                    <Avatar className="size-7">
+                    <Avatar className="size-6">
                       <AvatarImage
                         src={member?.user?.avatar?.url}
                         alt="profile-picture"
                       />
-                      <AvatarFallback className="bg-active text-white">
+                      <AvatarFallback className="bg-primary text-card">
                         {member.user.fullName[0].toUpperCase()}
                       </AvatarFallback>
                     </Avatar>
