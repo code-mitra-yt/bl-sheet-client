@@ -1,8 +1,8 @@
-import { InvitationStatus, Member } from "@/types";
 import { cn } from "@/lib/utils";
 import { Loader } from "@/components";
-import { INVITATION_STATUS_COLORS, MEMBER_ROLE_COLORS } from "@/constants";
 import { Badge } from "@/components/ui/badge";
+import { INVITATION_STATUS_COLORS, MEMBER_ROLE_COLORS } from "@/constants";
+import { InvitationStatus, Member, MemberRole } from "@/types";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   Table,
@@ -12,13 +12,22 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { useProjectContext } from "@/providers/project-provider";
+import MemberActions from "./member-actions";
 
 interface MemberTableProps {
   members: Member[];
   isLoading: boolean;
+  refetchMembers: () => void;
 }
 
-const MemberTable = ({ members, isLoading }: MemberTableProps) => {
+const MemberTable = ({
+  members,
+  isLoading,
+  refetchMembers,
+}: MemberTableProps) => {
+  const { project } = useProjectContext();
+
   if (isLoading) return <Loader />;
 
   return (
@@ -36,6 +45,9 @@ const MemberTable = ({ members, isLoading }: MemberTableProps) => {
               Role
             </TableHead>
             <TableHead className="text-foreground">Status</TableHead>
+            {project?.role === MemberRole.OWNER && (
+              <TableHead className="text-foreground">Actions</TableHead>
+            )}
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -80,6 +92,16 @@ const MemberTable = ({ members, isLoading }: MemberTableProps) => {
                   {member.invitationStatus}
                 </Badge>
               </TableCell>
+
+              {project?.role === MemberRole.OWNER && (
+                <TableCell className="text-foreground">
+                  <MemberActions
+                    memberId={member._id!}
+                    refetchMembers={refetchMembers}
+                    projectId={project.projectId}
+                  />
+                </TableCell>
+              )}
             </TableRow>
           ))}
         </TableBody>

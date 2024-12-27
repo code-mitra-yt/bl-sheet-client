@@ -25,6 +25,13 @@ const apis = {
       authToken,
       data,
     }),
+  removeMember: ({ authToken, data }: RequestType) =>
+    request({
+      method: "DELETE",
+      url: urls.removeMember,
+      authToken,
+      data,
+    }),
 };
 
 export default apis;

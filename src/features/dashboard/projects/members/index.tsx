@@ -29,7 +29,11 @@ const ProjectMembers = () => {
           <MemberFilters refetchMembers={refetch} />
         </div>
       </div>
-      <MemberTable members={members} isLoading={isLoading} />
+      <MemberTable
+        members={members}
+        isLoading={isLoading}
+        refetchMembers={refetch}
+      />
       <div className="pt-3">
         <Pagination
           setFilters={setFilters}
