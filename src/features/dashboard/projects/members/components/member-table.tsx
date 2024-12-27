@@ -93,14 +93,18 @@ const MemberTable = ({
                 </Badge>
               </TableCell>
 
-              {project?.role === MemberRole.OWNER && (
+              {project?.role === MemberRole.OWNER &&
+              member.role !== MemberRole.OWNER ? (
                 <TableCell className="text-foreground">
                   <MemberActions
+                    role={member.role}
                     memberId={member._id!}
                     refetchMembers={refetchMembers}
                     projectId={project.projectId}
                   />
                 </TableCell>
+              ) : (
+                <TableCell className="text-center">-</TableCell>
               )}
             </TableRow>
           ))}

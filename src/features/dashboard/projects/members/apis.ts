@@ -32,6 +32,13 @@ const apis = {
       authToken,
       data,
     }),
+  updateMembr: ({ authToken, data }: RequestType) =>
+    request({
+      method: "PATCH",
+      url: urls.updateMember,
+      authToken,
+      data,
+    }),
 };
 
 export default apis;

@@ -15,4 +15,6 @@ export const INVITATION_STATUS_COLORS = {
   [InvitationStatus.REJECTED]: "text-red-500 bg-red-100",
 };
 
+export const AvailabeMemberRole: string[] = Object.keys(MemberRole);
+
 export { NAV_LINKS, FEATURES, QUERY, PROJECT_LINKS };
