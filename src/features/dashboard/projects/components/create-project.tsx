@@ -48,7 +48,12 @@ const CreateProject = ({ refetchProjects }: CreateProjectProps) => {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button variant="outline" onClick={() => setOpen(true)}>
+        <Button
+          variant="primary"
+          size="sm"
+          className="px-6 rounded-full"
+          onClick={() => setOpen(true)}
+        >
           <Plus />
           <span>Create</span>
         </Button>
@@ -101,7 +106,13 @@ const CreateProject = ({ refetchProjects }: CreateProjectProps) => {
               />
 
               <SheetFooter>
-                <Button variant="outline" type="submit" disabled={isLoading}>
+                <Button
+                  variant="primary"
+                  size="sm"
+                  className="px-6 rounded-full"
+                  type="submit"
+                  disabled={isLoading}
+                >
                   {isLoading && (
                     <LoaderCircle className="mr-1 size-4 animate-spin" />
                   )}

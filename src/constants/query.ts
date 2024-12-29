@@ -12,6 +12,10 @@ const QUERY = {
   MEMBER: {
     GET_MEMBERS: "GET_MEMBERS",
   },
+
+  TASK: {
+    GET_TASKS: "GET_TASKS",
+  },
 };
 
 export default QUERY;

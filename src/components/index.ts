@@ -14,6 +14,7 @@ import DottedSeparator from "./shared/dotted-separator";
 import SearchInput from "./shared/search-input";
 import SelectFilters from "./shared/select-filters";
 import Pagination from "./shared/pagination";
+import SelectField from "./shared/select-field";
 
 import GridEffect from "./effects/grid-effect";
 
@@ -42,6 +43,7 @@ export {
   SelectFilters,
   SearchInput,
   Pagination,
+  SelectField,
   GridEffect,
   SignInIcon,
   SignUpIcon,

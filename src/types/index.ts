@@ -90,3 +90,49 @@ export interface Project {
   isDeleted: boolean;
   owner: User;
 }
+
+export enum TaskStatus {
+  TODO = "Todo",
+  IN_PROGRESS = "In Progress",
+  UNDER_REVIEW = "Under Review",
+  COMPLETED = "Completed",
+}
+
+export enum TaskPriority {
+  LOW = "Low",
+  MEDIUM = "Medium",
+  HIGH = "High",
+}
+
+export interface Task {
+  _id: string;
+  projectId: string;
+  title: string;
+  description: string;
+  status: TaskStatus;
+  priority: TaskPriority;
+  dueDate: Date;
+  members: Member[];
+  completedDate: Date;
+  commentCount: number;
+  subTasks: string[];
+  taskType: string;
+  taskNumber: number;
+  isDeleted: boolean;
+  creator: Member & { fullName: string; avatar: Avatar };
+}
+
+export interface GetTasksQuery {
+  projectId: string;
+  title: string;
+  priority: TaskPriority;
+  status: TaskStatus;
+  assignedToMe: boolean;
+  createdByMe: boolean;
+  sortByCreated: boolean;
+}
+
+export interface Options {
+  label: string;
+  value: string;
+}
