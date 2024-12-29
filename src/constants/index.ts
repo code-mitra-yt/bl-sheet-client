@@ -81,9 +81,9 @@ export const STATUS_OPTIONS: Options[] = [
 ];
 
 export const PRIORITY_OPTIONS: Options[] = [
-  { value: TaskPriority.LOW, label: "Low" },
-  { value: TaskPriority.MEDIUM, label: "Medium" },
-  { value: TaskPriority.HIGH, label: "High" },
+  { value: TaskPriority.LOW, label: "⬇️ Low" },
+  { value: TaskPriority.MEDIUM, label: "➡️ Medium" },
+  { value: TaskPriority.HIGH, label: "⬆️ High" },
 ];
 
 export const AvailabeMemberRole: string[] = Object.values(MemberRole);

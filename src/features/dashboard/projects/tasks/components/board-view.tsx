@@ -29,7 +29,7 @@ const BoardView = ({ tasks, refetchTasks }: BoardViewProps) => {
                 {filteredTasks.length}
               </span>
             </h1>
-            <div className="overflow-y-auto flex flex-col space-y-3 h-[calc(100vh_-255px)]">
+            <div className="overflow-y-auto flex flex-col space-y-3 h-[calc(100vh_-255px)] pb-5">
               {filteredTasks.map((task) => (
                 <TaskCard
                   key={task._id}

@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { useForm } from "react-hook-form";
-import { cn } from "@/lib/utils";
-import { zodResolver } from "@hookform/resolvers/zod";
 
-import { CalendarIcon, LoaderCircle, Plus } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Task } from "@/types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { CalendarIcon, Edit, LoaderCircle, Plus } from "lucide-react";
+
 import { Button, SelectField } from "@/components";
+import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
+import { Calendar } from "@/components/ui/calendar";
+import { Separator } from "@/components/ui/separator";
 import {
   Sheet,
   SheetContent,
@@ -33,49 +38,82 @@ import {
   STATUS_OPTIONS,
   TASK_TYPE_OPTIONS,
 } from "@/constants";
-import { Calendar } from "@/components/ui/calendar";
-import { Separator } from "@/components/ui/separator";
 
 import { taskShema, TaskValues } from "./task-schema";
 import useCreateTask from "../hooks/use-create-task";
+import useUpdateTask from "../hooks/use-update-task";
 
 interface CreateTaskProps {
   refetchTasks: () => void;
   projectId: string;
+  taskId?: string;
+  task?: Task;
+  forUpdate?: boolean;
 }
-const CreateTask = ({ refetchTasks, projectId }: CreateTaskProps) => {
+const CreateUpdateTask = ({
+  refetchTasks,
+  projectId,
+  taskId,
+  task,
+  forUpdate,
+}: CreateTaskProps) => {
   const form = useForm<TaskValues>({
     resolver: zodResolver(taskShema),
     mode: "onChange",
-    defaultValues: { status: "Todo", priority: "Low" },
+    defaultValues: forUpdate
+      ? { ...task, dueDate: new Date(task?.dueDate!) }
+      : { status: "Todo", priority: "Low" },
   });
   const [open, setOpen] = useState<boolean>(false);
-  const { isLoading, mutate } = useCreateTask({
+
+  const { isLoading, mutate: createTask } = useCreateTask({
+    refetchTasks,
+    form,
+    onClose: () => setOpen(false),
+  });
+  const { isLoading: loading, mutate: updateTask } = useUpdateTask({
     refetchTasks,
     form,
     onClose: () => setOpen(false),
   });
 
+  useEffect(() => {
+    if (task) {
+      form.reset(
+        forUpdate ? { ...task, dueDate: new Date(task?.dueDate!) } : {}
+      );
+    }
+  }, [task]);
+
   const onSubmit = (data: TaskValues) => {
-    mutate({ data: { ...data, projectId } });
+    if (forUpdate) updateTask({ data: { ...data, projectId, taskId } });
+    else createTask({ data: { ...data, projectId } });
   };
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
-        <Button
-          variant="primary"
-          size="sm"
-          className="px-6 rounded-full"
-          onClick={() => setOpen(true)}
-        >
-          <Plus />
-          <span>Create</span>
-        </Button>
+        {forUpdate ? (
+          <button className="text-green-500 hover:text-green-500/80 transition-all">
+            <Edit size={15} />
+          </button>
+        ) : (
+          <Button
+            variant="primary"
+            size="sm"
+            className="px-6 rounded-full"
+            onClick={() => setOpen(true)}
+          >
+            <Plus />
+            <span>Create</span>
+          </Button>
+        )}
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>
-          <SheetTitle className="text-active">Create New Task</SheetTitle>
+          <SheetTitle className="text-active">
+            {forUpdate ? "Update Task" : "Create New Task"}
+          </SheetTitle>
         </SheetHeader>
         <Separator className="my-3" />
         <div className="bg-active/5 border border-active/10 p-6 rounded-lg">
@@ -91,7 +129,7 @@ const CreateTask = ({ refetchTasks, projectId }: CreateTaskProps) => {
                   <FormItem>
                     <FormLabel>Title</FormLabel>
                     <FormControl>
-                      <Input
+                      <Textarea
                         placeholder="Task title"
                         className="focus-visible:ring-1"
                         {...field}
@@ -177,7 +215,9 @@ const CreateTask = ({ refetchTasks, projectId }: CreateTaskProps) => {
                       <PopoverContent className="w-auto p-0" align="start">
                         <Calendar
                           mode="single"
-                          selected={field.value}
+                          selected={
+                            field.value ? new Date(field.value) : undefined
+                          }
                           onSelect={field.onChange}
                           initialFocus
                         />
@@ -210,10 +250,10 @@ const CreateTask = ({ refetchTasks, projectId }: CreateTaskProps) => {
                   type="submit"
                   disabled={isLoading}
                 >
-                  {isLoading && (
+                  {(isLoading || loading) && (
                     <LoaderCircle className="mr-1 size-4 animate-spin" />
                   )}
-                  Create
+                  {forUpdate ? "Update" : "Create"}
                 </Button>
               </SheetFooter>
             </form>
@@ -224,4 +264,4 @@ const CreateTask = ({ refetchTasks, projectId }: CreateTaskProps) => {
   );
 };
 
-export default CreateTask;
+export default CreateUpdateTask;

@@ -10,7 +10,7 @@ import { TASK_PRIORITY_COLOR, TASK_TYPE_COLOR } from "@/constants";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import AssignMember from "./assign-member";
-import UpdateTask from "./update-task";
+import UpdateTask from "./create-update-task";
 import DeleteTask from "./delete-task";
 
 interface TaskCardProps {
@@ -51,7 +51,13 @@ const TaskCard = ({ task, refetchTasks }: TaskCardProps) => {
 
           {project?.role !== MemberRole.MEMBER ? (
             <div className="flex items-center space-x-2">
-              <UpdateTask refetchTasks={refetchTasks} task={task} />
+              <UpdateTask
+                projectId={task.projectId}
+                forUpdate={true}
+                refetchTasks={refetchTasks}
+                task={task}
+                taskId={task._id}
+              />
               <DeleteTask
                 taskId={task._id}
                 projectId={task.projectId}

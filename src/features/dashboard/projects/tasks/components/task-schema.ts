@@ -17,13 +17,9 @@ export const taskShema = z.object({
   priority: z.enum(["Low", "Medium", "High"], {
     message: "Priority is invalid",
   }),
-  dueDate: z
-    .date({
-      message: "Due date must be a valid date.",
-    })
-    .refine((date) => date >= new Date(), {
-      message: "Due date must be in the future.",
-    }),
+  dueDate: z.date({
+    message: "Due date must be a valid date.",
+  }),
 });
 
 export type TaskValues = z.infer<typeof taskShema>;
