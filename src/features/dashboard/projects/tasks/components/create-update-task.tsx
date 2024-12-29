@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import { useForm } from "react-hook-form";
+import ReactQuill from "react-quill";
 
 import { cn } from "@/lib/utils";
 import { Task } from "@/types";
@@ -145,13 +146,9 @@ const CreateUpdateTask = ({
                 name="description"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Description</FormLabel>
+                    <FormLabel>Description (Optional)</FormLabel>
                     <FormControl>
-                      <Input
-                        placeholder="Task description"
-                        className="focus-visible:ring-1"
-                        {...field}
-                      />
+                      <ReactQuill theme="snow" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
