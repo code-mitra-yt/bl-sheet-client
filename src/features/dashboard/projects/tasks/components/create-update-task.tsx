@@ -10,7 +10,6 @@ import { CalendarIcon, Edit, LoaderCircle, Plus } from "lucide-react";
 
 import { Button, SelectField } from "@/components";
 import { Textarea } from "@/components/ui/textarea";
-import { Input } from "@/components/ui/input";
 import { Calendar } from "@/components/ui/calendar";
 import { Separator } from "@/components/ui/separator";
 import {
@@ -117,7 +116,7 @@ const CreateUpdateTask = ({
           </SheetTitle>
         </SheetHeader>
         <Separator className="my-3" />
-        <div className="bg-active/5 border border-active/10 p-6 rounded-lg">
+        <div className="sm:bg-active/5 sm:border sm:border-active/10 sm:p-6 sm:rounded-lg">
           <Form {...form}>
             <form
               className="flex flex-col space-y-6 md:px-0"

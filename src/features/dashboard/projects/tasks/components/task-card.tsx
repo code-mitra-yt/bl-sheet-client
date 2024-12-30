@@ -106,7 +106,14 @@ const TaskCard = ({ task, refetchTasks }: TaskCardProps) => {
             </Avatar>
           ))}
 
-          {project?.role !== MemberRole.MEMBER && <AssignMember />}
+          {project?.role !== MemberRole.MEMBER && (
+            <AssignMember
+              taskId={task._id}
+              projectId={task.projectId}
+              members={task.members}
+              refetchTasks={refetchTasks}
+            />
+          )}
         </div>
 
         <div className="flex items-center justify-center space-x-3">
