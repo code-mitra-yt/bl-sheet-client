@@ -18,7 +18,7 @@ const MemberFilters = ({ refetchMembers }: { refetchMembers: () => void }) => {
     <>
       <SearchInput
         fn={(email?: string) => setFilters({ email })}
-        text={email!}
+        text={email ? email : ""}
         placeholder="Filter members..."
       />
       <div className="flex items-center gap-2 w-full">

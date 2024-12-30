@@ -11,6 +11,7 @@ import Profile from "./dashboard/profile";
 import ProjectDetails from "./dashboard/projects/details";
 import ProjectMembers from "./dashboard/projects/members";
 import ProjectTasks from "./dashboard/projects/tasks";
+import TaskDetails from "./dashboard/projects/tasks/details";
 
 import SignUpPage from "./auth/sign-up";
 import SignInPage from "./auth/sign-in";
@@ -33,6 +34,7 @@ export {
   ProjectDetails,
   ProjectMembers,
   ProjectTasks,
+  TaskDetails,
   SignUpPage,
   SignInPage,
   ForgotPassword,

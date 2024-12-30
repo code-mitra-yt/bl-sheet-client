@@ -29,6 +29,7 @@ import {
   ProjectMembers,
   Invitation,
   ProjectTasks,
+  TaskDetails,
 } from "@/features";
 
 const router = createBrowserRouter(
@@ -60,7 +61,10 @@ const router = createBrowserRouter(
           <Route path=":projectId" element={<ProjectLayout />}>
             <Route path="details" element={<ProjectDetails />} />
             <Route path="members" element={<ProjectMembers />} />
-            <Route path="tasks" element={<ProjectTasks />} />
+            <Route path="tasks">
+              <Route index element={<ProjectTasks />} />
+              <Route path=":taskId" element={<TaskDetails />} />
+            </Route>
           </Route>
         </Route>
         <Route path="todos" element={<Todos />} />

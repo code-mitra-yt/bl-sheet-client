@@ -1,16 +1,20 @@
+import { cn } from "@/lib/utils";
+import { Loader } from "@/components";
+import { Task, TaskStatus } from "@/types";
 import { useSidebar } from "@/components/ui/sidebar";
 import { AvailableTaskStatus, STATUS_TEXT_WITH_ICON } from "@/constants";
-import { cn } from "@/lib/utils";
-import { Task, TaskStatus } from "@/types";
+
 import TaskCard from "./task-card";
 
 interface BoardViewProps {
   tasks: Task[];
   refetchTasks: () => void;
+  isLoading: boolean;
 }
 
-const BoardView = ({ tasks, refetchTasks }: BoardViewProps) => {
+const BoardView = ({ tasks, refetchTasks, isLoading }: BoardViewProps) => {
   const { open, isMobile } = useSidebar();
+  if (isLoading) return <Loader />;
   return (
     <div
       className={cn(

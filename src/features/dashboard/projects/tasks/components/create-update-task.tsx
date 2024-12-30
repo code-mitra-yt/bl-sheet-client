@@ -101,7 +101,7 @@ const CreateUpdateTask = ({
           <Button
             variant="primary"
             size="sm"
-            className="px-6 rounded-full"
+            className="px-4 h-8 w-full rounded-full"
             onClick={() => setOpen(true)}
           >
             <Plus />
