@@ -36,8 +36,8 @@ const MemberCard = ({
   };
 
   return (
-    <div className="flex items-center justify-between px-2 py-1 bg-active/20 rounded-sm">
-      <span className="text-active text-sm font-medium">{member.email}</span>
+    <div className="flex items-center justify-between px-2 py-1 bg-active/20 rounded-sm w-full">
+      <span className="text-active text-sm truncate">{member.email}</span>
       <AlertDialog open={open} onOpenChange={setOpen}>
         <AlertDialogTrigger asChild>
           <button className="text-red-500 hover:text-red-500/80 transition-all">

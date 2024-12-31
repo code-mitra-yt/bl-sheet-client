@@ -128,7 +128,7 @@
     border-radius: 5px;
   }
   * {
-    scrollbar-width: none;
+    scrollbar-width: thin;
     scrollbar-color: hsl(var(--border)) transparent;
   }
 }

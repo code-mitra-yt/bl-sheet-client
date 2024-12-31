@@ -119,6 +119,7 @@ export interface Task {
   taskType: string;
   taskNumber: number;
   isDeleted: boolean;
+  isCreator: boolean;
   creator: Member & { fullName: string; avatar: Avatar };
 }
 

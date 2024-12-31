@@ -2,7 +2,6 @@ import { useProjectContext } from "@/providers/project-provider";
 
 import BoardView from "./components/board-view";
 import useGetTasks from "./hooks/use-get-tasks";
-import CreateTask from "./components/create-update-task";
 import TaskFilters from "./components/task-filters";
 
 const ProjectTasks = () => {
@@ -16,7 +15,6 @@ const ProjectTasks = () => {
             {project?.name}
           </h1>
         </div>
-
         <TaskFilters refetchTasks={refetch} projectId={project?.projectId!} />
       </div>
       <BoardView tasks={tasks} refetchTasks={refetch} isLoading={isLoading} />

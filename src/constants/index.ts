@@ -40,6 +40,13 @@ export const TASK_TYPE_COLOR: Record<string, string> = {
   "UI Design": "text-yellow-500 bg-yellow-500",
 };
 
+export const TASK_STATUS_COLOR = {
+  [TaskStatus.TODO]: "text-gray-500 bg-gray-100",
+  [TaskStatus.IN_PROGRESS]: "text-blue-500 bg-blue-100",
+  [TaskStatus.UNDER_REVIEW]: "text-yellow-500 bg-yellow-100",
+  [TaskStatus.COMPLETED]: "text-green-500 bg-green-100",
+};
+
 export const TASK_TYPE_OPTIONS: Options[] = [
   {
     value: "Bug Fix",
