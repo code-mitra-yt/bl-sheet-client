@@ -11,8 +11,6 @@ const TaskCard = () => {
   const { task, refetchTask } = useTaskContext();
   const { project } = useProjectContext();
 
-  if (!task) return null;
-
   return (
     <div className="space-y-3 w-full col-span-2">
       <div className="space-y-2 p-3 rounded-lg bg-muted border shadow-sm h-fit w-full">
@@ -20,9 +18,9 @@ const TaskCard = () => {
           <h1 className="text-primary text-sm font-bold">Assingees</h1>
           {project?.role !== MemberRole.MEMBER && (
             <AssignMember
-              members={task.members}
+              members={task?.members!}
               projectId={project?.projectId!}
-              taskId={task?._id}
+              taskId={task?._id!}
               refetchTasks={refetchTask}
             />
           )}
@@ -44,8 +42,8 @@ const TaskCard = () => {
       <div className="space-y-2 p-3 rounded-lg bg-muted border shadow-sm h-fit w-full">
         <h1 className="text-primary text-sm font-bold">Priority</h1>
         <div className="flex items-center">
-          <Badge className={TASK_PRIORITY_COLOR[task.priority]}>
-            {task.priority}
+          <Badge className={TASK_PRIORITY_COLOR[task?.priority!]}>
+            {task?.priority}
           </Badge>
         </div>
       </div>
