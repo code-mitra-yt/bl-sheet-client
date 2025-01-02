@@ -1,19 +1,23 @@
 import { useNavigate } from "react-router-dom";
 
-import { MemberRole } from "@/types";
-import { useProjectContext } from "../../../../../../providers/project-provider";
+import { MemberRole, Task } from "@/types";
 
-import CreateOrUpdateTask from "../../components/create-update-task";
-import DeleteTask from "../../components/delete-task";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { DottedSeparator } from "@/components";
-import { useTaskContext } from "../provider";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-const TaskInfo = () => {
+import TaskComments from "./task-comments";
+import DeleteTask from "../../components/delete-task";
+import CreateOrUpdateTask from "../../components/create-update-task";
+import { useProjectContext } from "../../../../../../providers/project-provider";
+
+interface TaskInfoProps {
+  task: Task;
+  refetchTask: () => void;
+}
+const TaskInfo = ({ task, refetchTask }: TaskInfoProps) => {
   const navigate = useNavigate();
   const { project } = useProjectContext();
-  const { task, refetchTask } = useTaskContext();
 
   return (
     <div className="col-span-4">
@@ -73,6 +77,11 @@ const TaskInfo = () => {
       </div>
 
       <DottedSeparator className="my-5" color="#0096B7" />
+      <TaskComments
+        taskId={task?._id!}
+        comments={task?.comments!}
+        refetchTasks={refetchTask}
+      />
     </div>
   );
 };

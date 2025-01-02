@@ -1,14 +1,17 @@
-import { MemberRole } from "@/types";
+import { MemberRole, Task } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { useProjectContext } from "@/providers/project-provider";
 import { TASK_PRIORITY_COLOR } from "@/constants";
 
 import AssignMember from "../../components/assign-member";
 import MemberCard from "../../components/member-card";
-import { useTaskContext } from "../provider";
 
-const TaskCard = () => {
-  const { task, refetchTask } = useTaskContext();
+interface TaskCardProps {
+  task: Task;
+  refetchTask: () => void;
+}
+
+const TaskCard = ({ task, refetchTask }: TaskCardProps) => {
   const { project } = useProjectContext();
 
   return (

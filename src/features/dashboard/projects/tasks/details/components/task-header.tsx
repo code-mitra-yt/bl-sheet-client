@@ -5,15 +5,15 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { TASK_STATUS_COLOR, TASK_TYPE_COLOR } from "@/constants";
 
-import { useTaskContext } from "../provider";
+import { Task } from "@/types";
 
-const TaskHeader = () => {
-  const { task } = useTaskContext();
+interface TaskHeaderProps {
+  task: Task;
+}
 
-  if (!task) return null;
-
+const TaskHeader = ({ task }: TaskHeaderProps) => {
   return (
-    <div className="border-b pb-2">
+    <div className="border-b border-active pb-2">
       <div className="flex space-y-1 sm:space-y-0 sm:items-center sm:justify-between flex-col sm:flex-row">
         <div className="flex items-center space-x-2">
           <Badge

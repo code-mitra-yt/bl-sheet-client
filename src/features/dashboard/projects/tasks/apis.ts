@@ -53,6 +53,27 @@ const apis = {
       authToken,
       data,
     }),
+  addComment: ({ authToken, data }: RequestType) =>
+    request({
+      method: "POST",
+      url: urls.addComment,
+      authToken,
+      data,
+    }),
+  removeComment: ({ authToken, data }: RequestType) =>
+    request({
+      method: "DELETE",
+      url: urls.removeComment,
+      authToken,
+      data,
+    }),
+  updateComment: ({ authToken, data }: RequestType) =>
+    request({
+      method: "PATCH",
+      url: urls.updateComment,
+      authToken,
+      data,
+    }),
 };
 
 export default apis;

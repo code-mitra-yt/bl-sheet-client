@@ -15,6 +15,7 @@ import SearchInput from "./shared/search-input";
 import SelectFilters from "./shared/select-filters";
 import Pagination from "./shared/pagination";
 import SelectField from "./shared/select-field";
+import BackButton from "./shared/back-button";
 
 import GridEffect from "./effects/grid-effect";
 
@@ -44,6 +45,7 @@ export {
   SearchInput,
   Pagination,
   SelectField,
+  BackButton,
   GridEffect,
   SignInIcon,
   SignUpIcon,

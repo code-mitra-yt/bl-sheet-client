@@ -13,6 +13,6 @@ export const TaskContext = createContext<TaskContextProps>({
 
 export const useTaskContext = () => {
   const context = useContext(TaskContext);
-  if (!context || !context.task) throw new Error("Task context not found");
+  if (!context) throw new Error("Task context not found");
   return context;
 };

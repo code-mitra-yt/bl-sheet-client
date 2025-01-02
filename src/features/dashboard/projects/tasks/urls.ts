@@ -6,6 +6,9 @@ const urls = {
   deleteTask: "/project/task/deleteTask",
   assignMember: "/project/task/assignMember",
   removeAssignedMember: "/project/task/removeAssignedMember",
+  addComment: "/project/task/addComment",
+  removeComment: "/project/task/removeComment",
+  updateComment: "/project/task/updateComment",
 };
 
 export default urls;
