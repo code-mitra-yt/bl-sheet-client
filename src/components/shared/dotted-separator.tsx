@@ -22,9 +22,7 @@ const DottedSeparator = ({
   return (
     <div
       className={cn(
-        isHorizontal
-          ? "w-full flex items-center"
-          : "h-full flex flex-col items-center",
+        isHorizontal ? "w-full flex" : "h-full flex flex-col",
         className
       )}
     >
