@@ -13,6 +13,7 @@ interface TaskCardProps {
 
 const TaskCard = ({ task, refetchTask }: TaskCardProps) => {
   const { project } = useProjectContext();
+  if (!task) return null;
 
   return (
     <div className="space-y-3 w-full col-span-2">

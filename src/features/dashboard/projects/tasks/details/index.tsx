@@ -13,6 +13,7 @@ const TaskDetails = () => {
     taskId: taskId as string,
     projectId: projectId as string,
   });
+
   if (isLoading) return <Loader />;
 
   return (

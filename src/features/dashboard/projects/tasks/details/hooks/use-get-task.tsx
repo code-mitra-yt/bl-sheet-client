@@ -26,7 +26,7 @@ const useGetTask = ({ projectId, taskId }: UseGetTaskProps) => {
     retry: false,
   });
 
-  return { isLoading, refetch, task: response?.data?.data?.task };
+  return { isLoading, refetch, task: response?.data?.data?.task ?? null };
 };
 
 export default useGetTask;

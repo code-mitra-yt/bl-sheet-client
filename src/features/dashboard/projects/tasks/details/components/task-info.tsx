@@ -19,6 +19,8 @@ const TaskInfo = ({ task, refetchTask }: TaskInfoProps) => {
   const navigate = useNavigate();
   const { project } = useProjectContext();
 
+  if (!task) return null;
+
   return (
     <div className="col-span-4">
       <div className="mt-5 prose prose-stone !prose-sm max-w-full">
@@ -79,7 +81,7 @@ const TaskInfo = ({ task, refetchTask }: TaskInfoProps) => {
       <DottedSeparator className="my-5" color="#0096B7" />
       <TaskComments
         taskId={task?._id!}
-        comments={task?.comments!}
+        comments={task?.comments || []}
         refetchTasks={refetchTask}
       />
     </div>
