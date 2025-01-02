@@ -104,6 +104,23 @@ export enum TaskPriority {
   HIGH = "High",
 }
 
+export interface Comment {
+  _id: string;
+  content: string;
+  commentType: string;
+  author: {
+    email: string;
+    role: MemberRole;
+    isAuthor: boolean;
+    user: {
+      fullName: string;
+      avatar: Avatar;
+    };
+  };
+  createdAt: string;
+  updatedAt: string;
+}
+
 export interface Task {
   _id: string;
   projectId: string;
@@ -120,6 +137,7 @@ export interface Task {
   taskNumber: number;
   isDeleted: boolean;
   isCreator: boolean;
+  comments: Comment[];
   creator: Member & { fullName: string; avatar: Avatar };
 }
 
