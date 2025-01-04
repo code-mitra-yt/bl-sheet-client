@@ -74,6 +74,13 @@ const apis = {
       authToken,
       data,
     }),
+  changeStatus: ({ authToken, data }: RequestType) =>
+    request({
+      method: "PATCH",
+      url: urls.changeStatus,
+      authToken,
+      data,
+    }),
 };
 
 export default apis;

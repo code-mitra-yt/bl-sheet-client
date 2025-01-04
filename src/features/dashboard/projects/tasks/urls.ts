@@ -5,10 +5,11 @@ const urls = {
   updateTask: "/project/task/updateTask",
   deleteTask: "/project/task/deleteTask",
   assignMember: "/project/task/assignMember",
-  removeAssignedMember: "/project/task/removeAssignedMember",
   addComment: "/project/task/addComment",
   removeComment: "/project/task/removeComment",
   updateComment: "/project/task/updateComment",
+  changeStatus: "/project/task/changeStatus",
+  removeAssignedMember: "/project/task/removeAssignedMember",
 };
 
 export default urls;

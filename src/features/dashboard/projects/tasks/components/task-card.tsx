@@ -6,12 +6,13 @@ import { cn } from "@/lib/utils";
 import { MemberRole, Task } from "@/types";
 import { Badge } from "@/components/ui/badge";
 import { useProjectContext } from "@/providers/project-provider";
-import { TASK_PRIORITY_COLOR, TASK_TYPE_COLOR } from "@/constants";
+import { TASK_LEVLE, TASK_PRIORITY_COLOR, TASK_TYPE_COLOR } from "@/constants";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 import AssignMember from "./assign-member";
 import UpdateTask from "./create-update-task";
 import DeleteTask from "./delete-task";
+import ChangeStatus from "./change-status";
 
 interface TaskCardProps {
   task: Task;
@@ -94,6 +95,26 @@ const TaskCard = ({ task, refetchTasks }: TaskCardProps) => {
             </span>
           </div>
         </div>
+
+        {project?.role !== MemberRole.MEMBER ? (
+          <div className="pt-5">
+            <ChangeStatus
+              refetch={refetchTasks}
+              value={task.status}
+              taskId={task._id}
+              level={[0, 4]}
+            />
+          </div>
+        ) : task.isMember ? (
+          <div className="pt-5">
+            <ChangeStatus
+              refetch={refetchTasks}
+              value={task.status}
+              taskId={task._id}
+              level={TASK_LEVLE[task.status]}
+            />
+          </div>
+        ) : null}
       </div>
 
       <div className="flex items-center justify-between p-3 border-t-foreground/20">

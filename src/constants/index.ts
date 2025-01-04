@@ -28,6 +28,13 @@ export const STATUS_TEXT_WITH_ICON = {
   [TaskStatus.COMPLETED]: "✅ Today's Completed",
 };
 
+export const TASK_LEVLE = {
+  [TaskStatus.TODO]: [0, 3],
+  [TaskStatus.IN_PROGRESS]: [1, 3],
+  [TaskStatus.UNDER_REVIEW]: [2, 3],
+  [TaskStatus.COMPLETED]: [0, 4],
+};
+
 export const TASK_TYPE_COLOR: Record<string, string> = {
   "Bug Fix": "text-red-500 bg-red-100",
   "Feature Request": "text-blue-500 bg-blue-100",

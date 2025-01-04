@@ -139,6 +139,7 @@ export interface Task {
   isCreator: boolean;
   comments: Comment[];
   creator: Member & { fullName: string; avatar: Avatar };
+  isMember: boolean;
 }
 
 export interface GetTasksQuery {
