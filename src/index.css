@@ -11,10 +11,8 @@
 
 @layer base {
   :root {
-    --active: 191 100% 36%;
+    --active: 221 83% 53%;
     --active-foreground: 355.7 100% 97.3%;
-    /* --active: 221.2 83.2% 53.3%;
-    --active-foreground: 210 40% 98%; */
     --background: 0 0% 100%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
@@ -51,10 +49,8 @@
   }
 
   .dark {
-    --active: 191 100% 36%;
+    --active: 221 83% 53%;
     --active-foreground: 355.7 100% 97.3%;
-    /* --active: 221.2 83.2% 53.3%;
-    --active-foreground: 210 40% 98%; */
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
     --card: 240 10% 3.9%;
